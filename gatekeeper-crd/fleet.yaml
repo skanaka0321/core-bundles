@@ -4,6 +4,7 @@ helm:
   repo: https://charts.rancher.io
   chart: rancher-gatekeeper-crd
   version: 100.3.0+up3.10.0
+  takeOwnership: true
 diff:
   comparePatches:
   - apiVersion: policy/v1beta1
