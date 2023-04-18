@@ -1,9 +1,8 @@
 defaultNamespace: cattle-gatekeeper-system
 
 helm:
-  chart: https://charts.rancher.io/assets/rancher-gatekeeper/rancher-gatekeeper-3.3.001.tgz
+  chart: https://charts.rancher.io/assets/rancher-gatekeeper/rancher-gatekeeper-100.1.0+up3.7.1.tgz
   releaseName: rancher-gatekeeper
-  maxHistory: 3
 
 # Operator manages webhook configuration, so we need to ignore this in the diff phase
 diff:
@@ -13,11 +12,3 @@ diff:
     name: gatekeeper-validating-webhook-configuration
     operations:
     - {"op": "remove", "path":"/webhooks"}
-
-targetCustomizations:
-  - name: dev
-    helm:
-      chart: https://charts.rancher.io/assets/rancher-gatekeeper/rancher-gatekeeper-100.1.0+up3.7.1.tgz
-    clusterSelector:
-      matchLabels:
-        name: local
