@@ -3,5 +3,3 @@ defaultNamespace: cattle-gatekeeper-system
 helm:
   chart: https://charts.rancher.io/assets/rancher-gatekeeper-crd/rancher-gatekeeper-crd-100.1.0+up3.7.1.tgz
   releaseName: rancher-gatekeeper-crd
-  matchLabels:
-    name: local
