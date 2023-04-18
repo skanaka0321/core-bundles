@@ -9,6 +9,3 @@ targetCustomizations:
   - name: dev
     helm:
       chart: https://charts.rancher.io/assets/rancher-gatekeeper-crd/rancher-gatekeeper-crd-100.1.0+up3.7.1.tgz
-      matchLabels:
-        fleet-env: dev
-
