@@ -18,6 +18,3 @@ targetCustomizations:
   - name: dev
     helm:
       chart: https://charts.rancher.io/assets/rancher-gatekeeper/rancher-gatekeeper-100.1.0+up3.7.1.tgz
-    clusterSelector:
-      matchLabels:
-        fleet-env: dev
