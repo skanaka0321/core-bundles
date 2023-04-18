@@ -15,6 +15,6 @@ diff:
     - {"op": "remove", "path":"/webhooks"}
 
 targetCustomizations:
-  - name: custer
+  - name: testcuster
     helm:
       chart: https://charts.rancher.io/assets/rancher-gatekeeper/rancher-gatekeeper-100.1.0+up3.7.1.tgz
