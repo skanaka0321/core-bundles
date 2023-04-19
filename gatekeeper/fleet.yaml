@@ -1,7 +1,8 @@
 defaultNamespace: cattle-gatekeeper-system
 
 helm:
-  chart: https://charts.rancher.io/assets/rancher-gatekeeper/rancher-gatekeeper-100.1.0+up3.7.1.tgz
+  chart: https://charts.rancher.io/assets/rancher-gatekeeper/rancher-gatekeeper-100.2.0+up3.8.1.tgz
+  #assets/rancher-gatekeeper/rancher-gatekeeper-100.1.0+up3.7.1.tgz
   #assets/rancher-gatekeeper/rancher-gatekeeper-100.3.0+up3.10.0.tgz
   releaseName: rancher-gatekeeper
 
