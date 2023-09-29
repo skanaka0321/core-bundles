@@ -1,0 +1,148 @@
+rke2IngressNginx:
+  clients:
+    enabled: false
+  component: ingress-nginx
+  enabled: true
+  kubeVersionOverrides:
+    - constraint: < 1.21.0-0
+      values:
+        clients:
+          affinity:
+            podAffinity:
+              requiredDuringSchedulingIgnoredDuringExecution:
+                - labelSelector:
+                    matchExpressions:
+                      - key: app.kubernetes.io/component
+                        operator: In
+                        values:
+                          - controller
+                  namespaces:
+                    - kube-system
+                  topologyKey: kubernetes.io/hostname
+          deployment:
+            enabled: false
+          enabled: true
+          port: 10015
+          tolerations:
+            - effect: NoExecute
+              operator: Exists
+            - effect: NoSchedule
+              operator: Exists
+          useLocalhost: true
+        namespaceOverride: ''
+        proxy:
+          enabled: true
+        service:
+          selector: false
+    - constraint: '>= 1.21.0-0 < 1.22.12-0'
+      values:
+        clients:
+          affinity:
+            podAffinity:
+              requiredDuringSchedulingIgnoredDuringExecution:
+                - labelSelector:
+                    matchExpressions:
+                      - key: app.kubernetes.io/component
+                        operator: In
+                        values:
+                          - controller
+                  namespaces:
+                    - kube-system
+                  topologyKey: kubernetes.io/hostname
+          deployment:
+            enabled: true
+            replicas: 1
+          enabled: true
+          port: 10015
+          tolerations:
+            - effect: NoExecute
+              operator: Exists
+            - effect: NoSchedule
+              operator: Exists
+          useLocalhost: true
+        namespaceOverride: ''
+        proxy:
+          enabled: true
+        service:
+          selector: false
+    - constraint: '>= 1.23.0-0 < v1.23.9-0'
+      values:
+        clients:
+          affinity:
+            podAffinity:
+              requiredDuringSchedulingIgnoredDuringExecution:
+                - labelSelector:
+                    matchExpressions:
+                      - key: app.kubernetes.io/component
+                        operator: In
+                        values:
+                          - controller
+                  namespaces:
+                    - kube-system
+                  topologyKey: kubernetes.io/hostname
+          deployment:
+            enabled: true
+            replicas: 1
+          enabled: true
+          port: 10015
+          tolerations:
+            - effect: NoExecute
+              operator: Exists
+            - effect: NoSchedule
+              operator: Exists
+          useLocalhost: true
+        namespaceOverride: ''
+        proxy:
+          enabled: true
+        service:
+          selector: false
+    - constraint: '>= 1.24.0-0 < v1.24.3-0'
+      values:
+        clients:
+          affinity:
+            podAffinity:
+              requiredDuringSchedulingIgnoredDuringExecution:
+                - labelSelector:
+                    matchExpressions:
+                      - key: app.kubernetes.io/component
+                        operator: In
+                        values:
+                          - controller
+                  namespaces:
+                    - kube-system
+                  topologyKey: kubernetes.io/hostname
+          deployment:
+            enabled: true
+            replicas: 1
+          enabled: true
+          port: 10015
+          tolerations:
+            - effect: NoExecute
+              operator: Exists
+            - effect: NoSchedule
+              operator: Exists
+          useLocalhost: true
+        namespaceOverride: ''
+        proxy:
+          enabled: true
+        service:
+          selector: false
+  metricsPort: 10254
+  namespaceOverride: kube-system
+  proxy:
+    enabled: false
+  service:
+    selector:
+      app.kubernetes.io/name: rke2-ingress-nginx
+rke2Proxy:
+  clients:
+    port: 10013
+    tolerations:
+      - effect: NoExecute
+        operator: Exists
+      - effect: NoSchedule
+        operator: Exists
+    useLocalhost: true
+  component: kube-proxy
+  enabled: true
+  metricsPort: 10249
