@@ -9,8 +9,8 @@ helm:
     grafana:
       additionalDataSources:
       - name: "loki"
-          type: "loki"
-          url: "http://loki.loki.svc:3100"
+        type: "loki"
+        url: "http://loki.loki.svc:3100"
     prometheusOperator:
       prometheusSpec:
         resources:
