@@ -16,25 +16,32 @@ helm:
       enabled: true
     rke2Scheduler:
       enabled: true
-    grafana:
-      alertmanager:
-        alertmanagerSpec:
-          configSecret: alertmanager-rancher-monitoring-alertmanager
-          useExistingSecret: true
     global:
+      rbac:
+        pspEnabled: false
       cattle:
         clusterId: local
         clusterName: local
         rkePathPrefix: ""
         rkeWindowsPathPrefix: ""
         systemDefaultRegistry: ""
-        systemProjectId: p-vqm9n
         url: https://master-0
         systemDefaultRegistry: ""    
     additionalDataSources:
       - name: "loki"
         type: "loki"
         url: "http://loki.loki.svc:3100"
+    grafana:
+      persistence:
+        accessModes:
+        - ReadWriteOnce
+      annotations: null
+      enabled: true
+      finalizers: null
+      size: 1Gi
+      storageClassName: longhorn
+      subPath: null
+      type: pvc
     prometheus:
       prometheusSpec:
         evaluationInterval: 1m
