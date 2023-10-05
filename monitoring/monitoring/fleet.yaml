@@ -4,7 +4,7 @@ helm:
   releaseName: rancher-monitoring
   repo: https://charts.rancher.io
   chart: rancher-monitoring
-  version: 102.0.1+up40.1.2
+  version: 100.2.0+up40.1.2
   values:
     rke2ControllerManager:
       enabled: true
@@ -20,12 +20,11 @@ helm:
       rbac:
         pspEnabled: false
       cattle:
-        clusterId: local
-        clusterName: local
+        clusterId: c-m-qmt9sdw6
+        clusterName: dscluster
         rkePathPrefix: ""
         rkeWindowsPathPrefix: ""
         systemDefaultRegistry: ""
-        url: https://master-0
         systemDefaultRegistry: ""    
     additionalDataSources:
       - name: "loki"
